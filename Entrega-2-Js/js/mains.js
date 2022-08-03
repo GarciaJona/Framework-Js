@@ -25,6 +25,28 @@ function cargarEventListeners() {
   vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
 }
 
+function clickVaciar() {
+  Swal.fire({
+    title: 'Confirmas vaciar el carrito?',
+    width: '30%',
+    padding: '1rem',
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    allowEnterKey: false,
+    text: 'No podrás deshacer esto!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, vaciar carrito!',
+    cancelButtonText: 'Cancelar',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire('Borrado!', 'Tu carrito está vacío.', 'success');
+    }
+  });
+}
+
 function agregarCurso(e) {
   e.preventDefault();
 
